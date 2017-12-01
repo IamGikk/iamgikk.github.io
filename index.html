@@ -41,7 +41,7 @@
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 					var disqus_shortname = 'lostarmour';
 					var disqus_identifier = 'war';
-					var disqus_url_old = 'http://lostarmour.info/offtopic/war';
+					var disqus_url_old = 'https://lostarmour.info/offtopic/war';
 					var disqus_url = '../war';
 					var disqus_config = function () { 
 					  this.language = "ru";
@@ -49,7 +49,7 @@
 					/* * * DON'T EDIT BELOW THIS LINE * * */
 					(function() {
 						var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-						dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+						dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
 						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 					})();
 					/* * * Disqus Reset Function * * */
@@ -67,7 +67,7 @@
 										
 					var open_offtopic = function (new_id, new_title) {
 						disqus_identifier = new_id;
-						disqus_url = 'http://lostarmour.info/offtopic/'+disqus_identifier;
+						disqus_url = 'https://lostarmour.info/offtopic/'+disqus_identifier;
 						reset(disqus_identifier,disqus_url,new_title,'ru');
 						document.title = new_title;
                         $("#menu-title").text(new_title);
