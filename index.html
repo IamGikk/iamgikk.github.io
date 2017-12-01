@@ -15,7 +15,7 @@
         <div class="ui container">
             
             <div class="ui fixed menu">
-                <div class="text item" id="menu-title">Курилка лостармора</div>
+                <div class="text item" id="menu-title"></div>
                 <div class="right menu">
                     <div class="ui dropdown item">
                         Разделы
@@ -33,6 +33,7 @@
                 </div>
             </div>
             <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
             <div id="disqus_thread"></div>
         </div>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
@@ -48,11 +49,7 @@
 					  this.language = "ru";
 					};
 					/* * * DON'T EDIT BELOW THIS LINE * * */
-					(function() {
-						var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-						dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
-						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-					})();
+					
 					/* * * Disqus Reset Function * * */
 					var reset = function (newIdentifier, newUrl, newTitle, newLanguage) {
 						DISQUS.reset({
@@ -62,18 +59,29 @@
 								this.page.url = newUrl;
 								this.page.title = newTitle;
 								this.language = newLanguage;
+                                $("#menu-title").html(newTitle);
+                                document.title = newTitle;
 							}
 						});
 					};
 										
 					var open_offtopic = function (new_id, new_title) {
+                        if(new_id==''){
+                            new_id = location.hash;
+                            new_id = new_id.replace('#','');
+                            new_title = $('[href="#'+new_id+'"]').first().text();
+                        }
+                        
 						disqus_identifier = new_id;
 						disqus_url = 'https://lostarmour.info/offtopic/'+disqus_identifier;
 						reset(disqus_identifier,disqus_url,new_title,'ru');
-						document.title = new_title;
-                        $("#menu-title").text(new_title);
-						//history.pushState({}, null, disqus_url);
 					};
+            
+                    $(document).ready(function(){
+                        $.getScript('https://' + disqus_shortname + '.disqus.com/embed.js', function(){
+                            open_offtopic('');
+                        })
+                    });
         </script>
     </body>
 </html>
