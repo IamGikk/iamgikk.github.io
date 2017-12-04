@@ -7,6 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="stylesheet" href="/assets/semantic.min.css">
+        <link rel="stylesheet" href="/assets/overdisqs.css">
         <script type="text/javascript" src="/assets/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="/assets/semantic.min.js"></script>
         <title>Курилка Lost Armour</title>
@@ -61,6 +62,8 @@
 								this.language = newLanguage;
                                 $("#menu-title").html(newTitle);
                                 document.title = newTitle;
+                                
+                                $("html, body").animate({ scrollTop: 0 }, "slow");
 							}
 						});
 					};
